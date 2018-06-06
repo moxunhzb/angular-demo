@@ -1,0 +1,24 @@
+<div class="kfl-main" ng-init="count=0">
+    <header class="header">
+        <p class="  h4   text-center">饿了没</p>
+        
+    </header>
+    <input class="form-control form-control-lg " type="text" placeholder="搜索菜品名称或原料关键字..." >
+    <a  class="media mt-4 kfl-link " ng-repeat="item in dish">
+        <img class="align-self-center mr-3" src="{{item.icon}}" alt="Generic placeholder image">
+        <div class="media-body pl-2 pr-2">
+            <h5 class="mt-0 text-center">{{item.name}}</h5>
+            <p>{{item.description}}</p>
+            <hr>
+            <p class="mb-0 text-danger">价格：{{item.price}}</p>
+            <i class=" iconfont icon-wuuiconsuoxiao" ng-click="minus($index)"></i>
+            <span >{{count[$index]}}</span>
+            <i class="iconfont icon-jiahao" ng-click="add($index)"></i>
+            <span>价格：{{money[$index]}}</span>
+        </div>
+    </a>
+     <p ng-hide="hasMore" class="alert alert-danger text-center mt-3">已经没有更多内容可以加载了</p>
+    <button ng-show="hasMore" ng-click="loadMore()" class="btn btn-success btn-block mt-2 mb-4 pb-4">加载更多</button>
+</div>
+<div ng-include="'footer.html'"></div>   
+   

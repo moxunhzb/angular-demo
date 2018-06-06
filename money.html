@@ -1,0 +1,57 @@
+<div class="pay">
+    <header class="header">
+      <p class="  h4  text-center">饿了没</p>
+      
+    </header>
+    <h1 class="  text-center ">菜单</h1>  
+    
+   
+
+    <table class="table">
+        <thead>
+          <tr class="">
+            <th scope="col" ></th>
+            <th scope="col" >菜名</th>
+            <th scope="col" class="text-nowrap">数量</th>
+            <th scope="col" class="text-nowrap">价格</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr ng-repeat="item in dish" ng-if="num[$index]!=0">
+            <th scope="row" class="row1">{{$index+1}}</th>
+            <td class="row2">{{dish[$index].name}}</td>
+            <td class="row3">{{num[$index]}}</td>
+            <td class="row4">{{money[$index]}}</td>
+          </tr>
+          <tr >
+            <th scope="row" class="row1"></th>
+            <td class="row2">本次需付</td>
+            <td class="row3"></td>
+            <td class="row4">{{total}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">下单成功</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                期待您的下次光临
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="jump('/login')">close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" >cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <footer>
+        <button class="btn btn-block btn-primary" ng-click="jump('/menu')">继续购买</button>
+        <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#exampleModal"> 下单 </button>
+      </footer>
+</div>
